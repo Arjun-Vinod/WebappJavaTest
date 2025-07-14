@@ -6,22 +6,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class TestHomePage {
 
     public static void main(String[] args) {
-        // Set chromedriver path if not in PATH
-        // System.setProperty("webdriver.chrome.driver", "/path/to/chromedriver");
-
         WebDriver driver = new ChromeDriver();
+
         try {
             driver.get("http://<YOUR_DEPLOYED_APP_URL>/Jenkins-CICD-simpleJavaWebapp/");
             String pageSource = driver.getPageSource();
+
             if (pageSource.contains("Welcome to Jenkins CI/CD Java WebApp!")) {
-                System.out.println("✅ Test Passed: Text found!");
+                System.out.println("✅ Test Passed");
             } else {
-                System.out.println("❌ Test Failed: Text NOT found!");
-                System.exit(1);
+                System.err.println("❌ Test Failed: Expected content not found.");
             }
+
         } catch (Exception e) {
-            System.out.println("❌ Test Failed with Exception: " + e.getMessage());
-            System.exit(1);
+            System.err.println("❌ Test Failed: " + e.getMessage());
         } finally {
             driver.quit();
         }

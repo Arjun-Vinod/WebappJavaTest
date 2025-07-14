@@ -17,7 +17,7 @@
   </dependencies>
 
   <build>
-    <finalName>testing</finalName> <!-- 👈 this makes it testing.jar -->
+    <finalName>testing</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -31,7 +31,7 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
-          <finalName>testing</finalName> <!-- 👈 rename the fat jar too -->
+          <finalName>testing</finalName>
         </configuration>
         <executions>
           <execution>
